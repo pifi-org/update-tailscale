@@ -6,14 +6,12 @@
 #
 #
 # Description: This script updates tailscale on GL.iNet routers
-# Thread: https://forum.gl-inet.com/t/how-to-update-tailscale-on-arm64/37582
-# Author: Admon
 # Contributor: lwbt
 # Date: 2024-01-24
 SCRIPT_VERSION="2025.02.16.01"
 SCRIPT_NAME="update-tailscale.sh"
-UPDATE_URL="https://raw.githubusercontent.com/Admonstrator/glinet-tailscale-updater/main/update-tailscale.sh"
-TAILSCALE_TINY_URL="https://github.com/Admonstrator/glinet-tailscale-updater/releases/latest/download/"
+UPDATE_URL="https://raw.githubusercontent.com/pifi-org/update-tailscale/main/update-tailscale.sh"
+TAILSCALE_TINY_URL="https://github.com/pifi-org/update-tailscale/releases/latest/download/"
 #
 # Usage: ./update-tailscale.sh [--ignore-free-space] [--force] [--restore] [--no-upx] [--no-download] [--no-tiny] [--help]
 # Warning: This script might potentially harm your router. Use it at your own risk.
@@ -34,18 +32,14 @@ INFO='\033[0m' # No Color
 # Functions
 invoke_intro() {
     echo "┌────────────────────────────────────────────────────────────────────────┐"
-    echo "│ GL.iNet router script by Admon 🦭 for the GL.iNet community            │"
+    echo "│ Update Tailscale on PiFi Router │"
     echo "| Version: $SCRIPT_VERSION                                                 |"
     echo "├────────────────────────────────────────────────────────────────────────┤"
     echo "│ WARNING: THIS SCRIPT MIGHT POTENTIALLY HARM YOUR ROUTER!               │"
     echo "│ It's only recommended to use this script if you know what you're doing.│"
     echo "├────────────────────────────────────────────────────────────────────────┤"
     echo "│ This script will update Tailscale on your router.                      │"
-    echo "│                                                                        │"
-    echo "│ Prerequisites:                                                         │"
-    echo "│ 1. At least 15 MB of free space.                                       │"
-    echo "│ 2. Firmware version 4 or higher.                                       │"
-    echo "│ 3. Architecture arm64, armv7 or mips.                                  │"
+    echo                                 │"
     echo "└────────────────────────────────────────────────────────────────────────┘"
 }
 
@@ -344,7 +338,7 @@ upgrade_persistance() {
     echo "┌────────────────────────────────────────────────────────────────────────────────┐"
     echo "| The update was successful. Do you want to make the installation permanent?     |"
     echo "| This will make your tailscale installation persistent over firmware upgrades.  |"
-    echo "| Please note that this is not officially supported by GL.iNet.                  |"
+    echo "| Please note that this is not officially supported.                  |"
     echo "| It could lead to issues, even if not likely. Just keep that in mind.           |"
     echo "| In worst case, you might need to remove the config from /etc/sysupgrade.conf   |"
     echo "└────────────────────────────────────────────────────────────────────────────────┘"
